@@ -1,0 +1,22 @@
+<div id="<%= player.username %>" class="player">
+  <img
+    class="playericon"
+    src="<%= player.avatar %> "
+    alt="<%= player.username %>'s Icon"
+  />
+  <span class="playername"><%= player.username %></span>
+  <span class="btn-group opbtns">
+    <button
+      class="btn btn-primary"
+      onclick="opPlayer('<%= player.username %>'); "
+    >
+      OP
+    </button>
+    <button
+      class="btn btn-danger"
+      onclick="deopPlayer('<%= player.username %>'); "
+    >
+      DEOP
+    </button>
+  </span>
+</div>

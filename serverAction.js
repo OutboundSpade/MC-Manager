@@ -47,6 +47,7 @@ async function createServer(id, name, version, subdomain, seed) {
     servers.get(id).name,
     servers.get(id).version
   );
+  setCreationStatus(id, "Starting Server...");
   setTimeout(() => {
     delete servers.get(id).creationStatus;
     servers.sync();

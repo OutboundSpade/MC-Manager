@@ -71,5 +71,32 @@ router.get("/servers/delete/:id", async (req, res) => {
   server.deleteServer(id);
   res.sendStatus(200);
 });
-router.get("/servers/delete/:id", async (req, res) => {});
+router.get("/servers/opPlayer/:id/:name", (req, res) => {
+  const servers = new JSONdb("db/servers.json");
+  const id = req.params.id;
+  if (
+    servers.get(id) === undefined ||
+    servers.get(id).creationStatus !== undefined
+  ) {
+    res.sendStatus(404);
+    return;
+  }
+  console.log(`op ${req.params.name}`);
+  mc.opPlayer(id, req.params.name);
+  res.sendStatus(200);
+});
+router.get("/servers/deopPlayer/:id/:name", (req, res) => {
+  const servers = new JSONdb("db/servers.json");
+  const id = req.params.id;
+  if (
+    servers.get(id) === undefined ||
+    servers.get(id).creationStatus !== undefined
+  ) {
+    res.sendStatus(404);
+    return;
+  }
+  console.log(`deop ${req.params.name}`);
+  mc.deopPlayer(id, req.params.name);
+  res.sendStatus(200);
+});
 module.exports = router;

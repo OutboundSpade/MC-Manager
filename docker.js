@@ -48,7 +48,7 @@ async function createContainer(name, version, options) {
   });
 }
 async function removeContainer(name) {
-  const containers = await docker.listContainers();
+  const containers = await listContainers();
   const id = containers.find((i) => i.Names[0] == `/${name}`).Id;
   console.log(id);
   let cont = docker.getContainer(id);

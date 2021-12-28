@@ -37,15 +37,14 @@
           disabled
          <% } %> >Delete</button>
         <span class="status-label">Status:&nbsp;</span>
-        <span class="status"></span>
           <% if (server.creationStatus !== undefined) { %>
-          <span class="server-status-creating"><%= server.creationStatus %> </span>
+          <span id="status" class="server-status-creating"><%= server.creationStatus %> </span>
           <% }else if(!status.offline) {%>
-          <span class="server-status-active">ONLINE</span>
+          <span id="status" class="server-status-active">ONLINE</span>
           <% }else {%>
-          <span class="server-status-inactive">OFFLINE</span>
+          <span id="status" class="server-status-inactive">OFFLINE</span>
           <% }%>
-        </span>
+      </span>
       </div>
       <div class="info">
         <span class="label">Version:&nbsp;</span>
@@ -54,6 +53,14 @@
       <div class="info">
         <span class="label">URL:&nbsp;</span>
 				<span class="data"><%= server.url %> </span>
+      </div>
+      <div class="info">
+        <span class="label">Connected:&nbsp;</span>
+				<span class="data"><div class="d-inline" id='current-connected'>0</div> / <div class="d-inline" id='max-connected'>0</div></span>
+      </div>
+      <div class="label">Players:</div>
+      <div class="players" id="players">
+        
       </div>
     </div>
   </body>

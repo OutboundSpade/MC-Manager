@@ -8,6 +8,10 @@ services:
       - mc-manager
     env_file:
       - .env
+    ports:
+      - "80:3000"
+    volumes:
+      - ~/mc-manager_data/db:/opt/db
     depends_on:
       - infrared-proxy
     

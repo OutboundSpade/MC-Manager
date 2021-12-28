@@ -31,7 +31,7 @@ async function getPlayers(users) {
   // console.log(icons);
   return icons;
 }
-async function getServers() {
+async function setServerStatus() {
   let card_ejs = await (await fetch(`/assets/views/server_card.ejs`)).text();
   let serverIDs = await (await fetch(`/api/servers/getIDs`)).json();
   serverIDs.forEach(async (id) => {
@@ -62,8 +62,8 @@ async function getServers() {
   });
   document.getElementById("spinner").classList.add("hidden");
 }
-getServers();
-setInterval(getServers, 5000);
+setServerStatus();
+setInterval(setServerStatus, 5000);
 async function getUserInfo(username) {
   if (userCache.get(username) === undefined) {
     console.log(`fetching player ${username}`);

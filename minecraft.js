@@ -26,10 +26,14 @@ async function getServerStatus(serverId) {
   return server;
 }
 async function opPlayer(serverId, username) {
-  return runRCON(serverId, `op ${username}`);
+  try {
+    return await runRCON(serverId, `op ${username}`);
+  } catch (e) {}
 }
 async function deopPlayer(serverId, username) {
-  return runRCON(serverId, `deop ${username}`);
+  try {
+    return await runRCON(serverId, `deop ${username}`);
+  } catch (e) {}
 }
 
 async function runRCON(serverId, cmd) {
@@ -41,12 +45,13 @@ async function runRCON(serverId, cmd) {
   let parsedLocation = util.parseAddress(serverInfo.localAddress);
   try {
     const client = new util.RCON();
-    await client.connect(parsedLocation.host, parsedLocation.port);
+    await client.connect(parsedLocation.host, 25575);
     await client.login("minecraft");
-    await client.run(cmd);
+    await client.execute(cmd);
     await client.close();
   } catch (e) {
     console.log(`Problem running RCON cmd: ${cmd}`);
+    console.error(e);
   }
 }
 

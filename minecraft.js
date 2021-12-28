@@ -45,7 +45,9 @@ async function runRCON(serverId, cmd) {
     await client.login("minecraft");
     await client.run(cmd);
     await client.close();
-  } catch (e) {}
+  } catch (e) {
+    console.log(`Problem running RCON cmd: ${cmd}`);
+  }
 }
 
 module.exports = { getServerStatus, opPlayer, deopPlayer };

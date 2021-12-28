@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  mc-manager:
+    container_name: mc-manager
+    image: outboundspade48/mc-manager:latest
+    networks:
+      - mc-manager
+    env_file:
+      - .env
+    depends_on:
+      - infrared-proxy
+    
+  infrared-proxy:
+    image: haveachin/infrared:latest
+    container_name: infrared-proxy
+    networks:
+      - mc-manager
+    environment:
+      INFRARED_API_ENABLED: "true"
+      INFRARED_API_BIND: "0.0.0.0:8080"
+      INFRARED_CONFIG_PATH: "/config"
+    volumes:
+      - ~/infrared_config:/config
+    ports:
+      - 25565:25565
+      - 8080:8080 #Remove this for production
+
+networks:
+  mc-manager:

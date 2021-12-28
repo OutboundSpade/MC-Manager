@@ -1,0 +1,39 @@
+<a class="card itembox" href="/server/status/<%=server.id%>">
+  <div class="item-contents">
+    <img
+      src="<% if (server.offline) { %>
+        <%= "/assets/images/offline_favicon.png" %> 
+      <% } else if (!server.favicon) { %>
+        <%= "/assets/images/default_favicon.png" %> 
+       <%} else { %>
+        <%= server.favicon %> 
+      <%} %>"
+      alt="server-icon"
+      class="server-logo"
+    />
+    <div class="server-header">
+    <h5 class="card-title server-title"><%= server.name %><br><div class="server-url">
+      <%= server.url %> 
+    </div></h5>
+    <div class="server-status">
+      Status:
+      <span class="<%= !server.online ? (server.creationStatus!==undefined ? "server-status-creating" : "server-status-inactive") : "server-status-active" %> " id="server-status"
+        ><%= !server.online ? (server.creationStatus!==undefined ? server.creationStatus : "OFFLINE") : "ONLINE" %></span
+      >
+    </div>
+  </div>
+    <div class="user-avitars card-footer">
+      <% avitars.forEach(icon => { %>
+        <%- icon.outerHTML %> 
+      <% }) %>
+    </div>
+    <div class="card-footer">
+      Connected:
+      <span id="connected"><%= server.players.online %></span>/<span
+        id="total"
+        ><%= server.players.max %></span
+      >
+    </div>
+  </div>
+</div>
+</a>

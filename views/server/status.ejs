@@ -1,0 +1,63 @@
+<% if (server !== undefined && server !== null) { %>
+  <%if(server.creationStatus !== undefined) {%>
+  <%  server.status = "CREATING...";%>
+  <%}else if (!status.offline) {%>
+    <%  server.status = "ONLINE"%>
+  <%}else {%>
+    <%  server.status = "OFFLINE"%>
+  <%}%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../partials/deps") %>
+    <link rel="stylesheet" href="/styles/status.css" />
+    <script>server = JSON.parse(`<%- JSON.stringify(server)%>`)</script>
+    <script src="/js/cache.js" defer></script>
+    <script src="/js/status.js" defer></script>
+    <title>MC Manager | Status Page</title>
+  </head>
+  <body class="bg-light">
+    <%- include('../partials/nav'); %>
+    <div class="m-5 contents-body">
+      <div class="status-header">
+        <span class="s-name"><%= server.name %></span>
+        <div class="btn-group action-bar" role="group">
+          <button type="button" onclick="startServer();" class="btn btn-success" <% if (server.status !== "OFFLINE") { %>
+           disabled
+          <% } %>><span class="bi bi-play-fill"></span>Start</button>
+          <button type="button" onclick="stopServer();" class="btn btn-danger" <% if (server.status !== "ONLINE") { %>
+            disabled
+           <% } %>><span class="bi bi-stop-fill"></span>Stop</button>
+          
+        </div>
+        <button type="button" onclick="deleteServer();" class="btn btn-danger ms-3" <% if (server.status === "CREATING...") { %>
+          disabled
+         <% } %> >Delete</button>
+        <span class="status-label">Status:&nbsp;</span>
+        <span class="status"></span>
+          <% if (server.creationStatus !== undefined) { %>
+          <span class="server-status-creating"><%= server.creationStatus %> </span>
+          <% }else if(!status.offline) {%>
+          <span class="server-status-active">ONLINE</span>
+          <% }else {%>
+          <span class="server-status-inactive">OFFLINE</span>
+          <% }%>
+        </span>
+      </div>
+      <div class="info">
+        <span class="label">Version:&nbsp;</span>
+				<span class="data"><%= server.version %> </span>
+      </div>
+      <div class="info">
+        <span class="label">URL:&nbsp;</span>
+				<span class="data"><%= server.url %> </span>
+      </div>
+    </div>
+  </body>
+</html>
+<% }else { %>
+<meta http-equiv="Refresh" content="0; url='/'" />
+<%} %>

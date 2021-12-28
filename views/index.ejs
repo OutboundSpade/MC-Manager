@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MC Manager | Dashboard</title>
+
+    <%- include("./partials/deps") %>
+    <script src="/js/cache.js" defer></script>
+    <script src="/js/getServerInfo.js" defer></script>
+  </head>
+  <body class="bg-light">
+    <%- include('./partials/nav'); %>
+    <a
+      href="server/create"
+      style="margin-bottom: 1%"
+      class="btn btn-primary"
+      oncl
+    >
+      Create Server <span class="bi bi-plus d-inline"></span></a
+    ><br />
+
+    <div id="cards"></div>
+    <!-- <div class="card itembox" style="width: 20rem">
+      <div class="item-contents">
+        <img
+          src="/assets/demo_server_image.png"
+          alt="server-icon"
+          class="server-logo"
+        />
+
+        <h5 class="card-title server-title">Family Survival Server</h5>
+        <div class="server-status">
+          Status:
+          <span class="server-status-inactive" id="server-status">OFFLINE</span>
+        </div>
+         <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go Somewhere</a> 
+        <div class="user-avitars card-footer"></div>
+        <div class="card-footer">
+          Connected: <span id="connected">0</span>/<span id="total">20</span>
+        </div>
+      </div>
+    </div> -->
+    <div id="spinner" class="text-center">
+      <div
+        style="width: 2rem; height: 2rem"
+        class="spinner-border m-3"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </body>
+</html>

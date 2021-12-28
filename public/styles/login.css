@@ -1,0 +1,21 @@
+.login-main {
+  border: solid var(--bs-gray) 2px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 5%;
+}
+.login-title {
+  margin-bottom: 15%;
+}
+
+.google-container {
+  /* margin: 5%; */
+}
+.logo {
+  /* margin: 5%; */
+  margin-bottom: 7%;
+}
+.alert-msg {
+  position: absolute;
+  top: 0;
+}

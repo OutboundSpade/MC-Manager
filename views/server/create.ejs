@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../partials/deps") %>
+    <link rel="stylesheet" href="/styles/create.css">
+    <script>
+      let parentDomain = "<%= parentURL %>"
+    </script>
+    <script src="/js/create.js" defer></script>
+    <title>MC Manager | Create Server</title>
+  </head>
+  <body class="bg-light" >
+    <%- include('../partials/nav'); %>
+    <form class="m-5 needs-validation" novalidate autocomplete="off" method="post">
+      <!-- oninput:"isValidDomain(this);" -->
+      <%- include('../partials/forms/label',{data:{text:"Server Name",name:"name",required:true,placeholder:"Name",maxlen:64}}) %>
+      <%- include('../partials/forms/labelInline',{data:{text:"URL",name:"subdomain",required:true,placeholder:"example",afterText:"."+parentURL,oninput:"isValidDomain(this);"}}) %>
+      <%- include('../partials/forms/labelInline',{data:{text:"Version",name:"version",required:true,placeholder:"1.18.1",maxlen:32,oninput:"isValidVersion(this);"}}) %>
+      <%- include('../partials/forms/labelInline',{data:{text:"Seed",name:"seed",afterText:"( Optional )",maxlen:32}}) %>
+      <div class="mb-3 iput"><input type="checkbox" name="eula" id="eula" required class="form-check-input"><label for="eula"class="ms-3">I agree to the Minecraft EULA</label></div>
+      <input type="submit" class="btn btn-primary" value="Create New Server">
+      </div>
+    </form>
+  </body>
+</html>

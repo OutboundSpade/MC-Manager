@@ -1,0 +1,48 @@
+.contents-body {
+  text-align: left;
+}
+.status-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.s-name {
+  display: block;
+  flex-grow: 1;
+  font-size: 2rem;
+}
+.status-label {
+  margin: 2%;
+  float: right;
+}
+.server-status-active {
+  color: var(--bs-success);
+}
+.server-status-inactive {
+  color: var(--bs-danger);
+}
+.server-status-creating {
+  color: var(--bs-warning);
+}
+
+.info .label {
+  font-size: 1.5rem;
+}
+.info .data {
+  font-size: 1.25rem;
+}
+.action-bar button {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 700;
+}
+@media only screen and (max-width: 700px) {
+  .status-label {
+    display: block;
+    float: none;
+  }
+  .status-header {
+    display: block;
+  }
+}

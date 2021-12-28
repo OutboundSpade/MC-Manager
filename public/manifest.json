@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "MC Manager",
+  "short_name": "MC Manager",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A flexible ui for managing minecraft servers",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "300x300",
+      "type": "image/x-icon"
+    }
+  ]
+}

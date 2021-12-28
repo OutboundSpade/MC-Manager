@@ -1,0 +1,241 @@
+/*
+#141719
+bg-dark
+#2f353a -lighter
+#33393f -lightest
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+@font-face {
+  font-family: "MinecraftBold";
+  font-style: normal;
+  src: url("/assets/fonts/mc-font/MinecraftBold-nMK1.otf");
+}
+@font-face {
+  font-family: "Minecraft";
+  font-style: normal;
+  src: url("/assets/fonts/mc-font/MinecraftRegular-Bmg3.otf");
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  font-family: Minecraft;
+}
+.logo-text {
+  font-family: VT323;
+  font-weight: 200;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all-center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.all-top-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+.copyr {
+  position: absolute;
+  bottom: 2%;
+}
+.userIcon {
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.app {
+  text-align: center;
+  margin: 2%;
+  /* width: 30rem !important; */
+  height: 16rem;
+  /* max-height: 15rem !important; */
+  padding: 1.4rem;
+  border-radius: 2%;
+  display: inline-table;
+  /* border: 3px solid #141719; */
+
+  max-width: 300px !important;
+}
+.applogo {
+  max-width: 200px;
+  width: 5rem !important;
+  height: 5rem !important;
+}
+.apptitle {
+  font-size: x-large;
+  display: inline;
+}
+.appdesc {
+  display: inline-block;
+  font-size: small;
+  overflow-y: auto;
+  max-height: 4rem;
+  /* max-width: 100%; */
+  margin-top: 4%;
+  /* color: var(--bs-gray); */
+}
+.hidden {
+  display: none;
+}
+.itembox {
+  cursor: pointer;
+  width: 30rem;
+  /* text-align: center; */
+  margin: 1%;
+  padding: 0;
+  /* width: 30rem !important; */
+  /* height: 50%; */
+  /* max-height: 15rem !important; */
+  /* padding: 1.4%; */
+  border: solid var(--bs-gray) 1px;
+  border-radius: 2%;
+  /* display: inline-table; */
+  /* border: 3px solid #141719; */
+
+  /* max-width: 300px !important; */
+  display: inline-flex;
+}
+.itembox:hover {
+  box-shadow: 0 0 4px var(--bs-gray);
+}
+.item-contents {
+  overflow: hidden;
+  display: inline;
+  text-align: left;
+}
+.user-avitars {
+  margin: 0;
+  /* padding: 0; */
+  /* margin-top: 5%; */
+  /* margin-bottom: 10%; */
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+.user-avitars img,
+i {
+  display: inline-block;
+  width: 2rem;
+  margin: 2%;
+}
+.server-header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.server-logo {
+  float: left;
+
+  width: 20%;
+  margin: 0;
+  left: 0px;
+  /* display: inline; */
+}
+.server-title {
+  clear: both;
+  display: inline-block;
+  margin-left: 1%;
+  margin-top: 10%;
+  /* text-align: left; */
+  /* padding-top: %;
+  vertical-align: bottom; */
+  /* vertical-align: -30%; */
+  text-align: left;
+}
+.server-url {
+  /* display: inline; */
+
+  color: var(--bs-secondary);
+  font-size: 1.25rem;
+}
+.server-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.server-status-active {
+  color: var(--bs-success);
+}
+.server-status-inactive {
+  color: var(--bs-danger);
+}
+.server-status-creating {
+  color: var(--bs-warning);
+}
+.navbtn {
+  border-radius: 9999px;
+  border: 0;
+  text-align: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.navitems {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+.logo-items {
+  display: inline-block;
+  flex: 1;
+  margin-left: 10%;
+  text-align: left;
+}
+@media only screen and (max-width: 700px) {
+  .navitems {
+    text-align: center;
+    display: block;
+  }
+  /* .navbtn {
+    display: block;
+  } */
+  .navitems-parent {
+    min-width: 100%;
+    margin: auto;
+  }
+  .logo-items {
+    text-align: center;
+  }
+  .user-avitars img,
+  i {
+    width: 2rem;
+  }
+  .itembox {
+    width: 20rem;
+  }
+}
+.navitems-parent {
+  margin-right: 10%;
+  flex: 1;
+}
+.nav {
+  /* height: 15%; */
+  /* border-bottom: solid var(--bs-gray) 1px; */
+  margin-bottom: 5%;
+}
+.floating_label {
+  color: var(--bs-secondary);
+}
+
+/* #apps {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+} */
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}

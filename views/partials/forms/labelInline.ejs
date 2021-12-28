@@ -1,0 +1,29 @@
+<% data.text = data.text === undefined ? data.name : data.text %> <% data.name =
+data.name === undefined ? data.text : data.name %>
+
+<div class="mb-3 iput row g-3  align-items-center">
+  <div class="col-auto">
+    <label
+      for="<%=
+    data.name+"-iput" %>"
+      class="col-form-label formLabel"
+      ><%= data.text %>
+    </label>
+  </div>
+  <div class="col-auto">
+    <input type="text" class="form-control" name="<%= data.name %>" id="<%=
+    data.name+"-iput" %>" aria-describedby="helpId" oninput="<%= data.oninput === undefined ? "" : data.oninput %> " placeholder="<%=
+    data.placeholder === undefined ? "" : data.placeholder %>" <% if
+    (data.required) { %> required <% } %> <% if(data.maxlen) {%>maxlength="<%=data.maxlen%>"<%}%> />
+  </div>
+  <div class="col-auto">
+    <span class="form-text">
+      <% if (data.afterText) { %>
+        <%= data.afterText %>
+      <%}%>
+    </span>
+  </div>
+  <small id="helpId" class="form-text text-muted"
+    ><%= data.helpText === undefined ? "" : helpText%>
+  </small>
+</div>
